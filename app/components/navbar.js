@@ -105,8 +105,8 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="mt-8">
-            <WrapButton href="/docs/components/card-carousel">
+          <div onClick={handleDownload} className="mt-8">
+            <WrapButton href="#" >
               <ArrowDownToLine className="animate-spin" size={14} color="#000" />
               Download CV
             </WrapButton>

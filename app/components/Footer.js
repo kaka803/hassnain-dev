@@ -35,8 +35,8 @@ export default function Footer() {
       ref={sectionRef}
       className="gradient-bg text-white py-20 text-center px-4"
     >
-      <h1 className="text-[80px] bebas-regular font-extrabold mb-2 fade-in">DEVELOPER ALI</h1>
-      <p className="max-w-2xl mx-auto text-sm fade-in">
+      <h1 className="md:text-[80px] bebas-regular font-extrabold mb-6 fade-in leading-none text-[50px] ">DEVELOPER ALI</h1>
+      <p className="max-w-2xl mx-auto text-xs md:text-sm fade-in">
         I am Ali Hassnain, a passionate and dedicated full-time web developer with over 3 years of hands-on experience in building responsive, high-converting websites and user-friendly interfaces. My mission is to deliver clean, optimized, and scalable code that helps businesses grow online. I believe in building strong client relationships through clear communication and consistent delivery. If you are looking for a reliable developer to bring your digital vision to life, feel free to reach out — I had love to collaborate and showcase my recent work.
       </p>
       <p className="mt-4 font-medium fade-in">From Pakistan</p>

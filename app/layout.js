@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Hassnain Dev | Full Stack Developer & Designer",
-  description: "Explore the portfolio of Hassnain — a creative full stack developer and UI/UX designer building modern web experiences using Next.js, React, and Tailwind CSS.",
+  description: "Explore the portfolio of Hassnain — a creative full stack developer and UI/UX designer building modern web experiences using Next.js, React, and tailwind CSS.",
   icons: {
     icon: "/logo.svg",  // or "/favicon.png"
   },
@@ -22,6 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
