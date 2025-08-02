@@ -74,10 +74,10 @@ const Hero = () => {
           
           <div className="whitespace-nowrap animate-marquee">
             <span className="mx-10">
-              3+ YEARS OF EXPERIENCE → 300+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
+              3+ YEARS OF EXPERIENCE → 10+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
             </span>
             <span className="mx-10">
-              3+ YEARS OF EXPERIENCE → 300+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
+              3+ YEARS OF EXPERIENCE → 10+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
             </span>
           </div>
         </div>
@@ -88,10 +88,10 @@ const Hero = () => {
           
           <div className="whitespace-nowrap animate-marquee">
             <span className="mx-10">
-              3+ YEARS OF EXPERIENCE → 300+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
+              3+ YEARS OF EXPERIENCE → 10+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
             </span>
             <span className="mx-10">
-              3+ YEARS OF EXPERIENCE → 300+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
+              3+ YEARS OF EXPERIENCE → 10+ PROJECTS COMPLETED → 99% POSITIVE FEEDBACK
             </span>
           </div>
         </div>
