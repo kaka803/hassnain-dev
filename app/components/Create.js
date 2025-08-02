@@ -55,8 +55,8 @@ const CreateDevelopSection = () => {
   }, []);
 
   return (
-    <section className="md:py-20 mb-10 h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
-      <h2 className="text-6xl sm:text-[40px] md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular mb-10 leading-tight">
+    <section className="md:py-20 pb-13 mb-10 h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
+      <h2 className="text-4xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular mb-10 leading-tight">
         I CAN CREATE/DEVELOP
       </h2>
 

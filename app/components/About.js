@@ -57,7 +57,7 @@ const ExperienceSection = () => {
       className="relative md:py-16 px-4 sm:px-8 md:px-16 mb-20 overflow-hidden"
     >
       <div className="relative z-10 text-center space-y-6">
-        <h2 className="text-6xl sm:text-[40px] md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular leading-tight">
+        <h2 className="text-4xl sm:text-[40px] md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular leading-tight">
           EXPERIENCES
         </h2>
 

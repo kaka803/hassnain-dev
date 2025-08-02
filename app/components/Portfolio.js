@@ -130,7 +130,7 @@ const PortfolioSlider = () => {
 
   return (
     <section ref={sectionRef} className="relative w-full py-10 px-4 md:px-10  overflow-hidden">
-      <h2 className="text-6xl md:text-[80px] bebas-regular font-bold text-center mb-16 text-gray-800">
+      <h2 className="text-5xl md:text-[80px] bebas-regular font-bold text-center mb-10 text-gray-800">
         Featured Projects
       </h2>
 
