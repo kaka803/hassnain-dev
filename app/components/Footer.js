@@ -80,11 +80,16 @@ export default function Footer() {
   )
 }
 
-function FooterIcon({ icon, label }) {
+function FooterIcon({ icon, label, href }) {
   return (
-    <div className="bg-white text-black rounded-full px-5 py-3 flex items-center gap-2 hover:scale-105 transition transform duration-300">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white text-black rounded-full px-5 py-3 flex items-center gap-2 hover:scale-105 transition transform duration-300"
+    >
       <span className="text-xl">{icon}</span>
       <span className="text-sm font-medium">{label}</span>
-    </div>
+    </a>
   )
 }
