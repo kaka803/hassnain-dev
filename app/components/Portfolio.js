@@ -10,28 +10,28 @@ const projects = [
     description:
       "Full‑stack blog with custom authentication, secure sessions, rich text editor, drafts/publish flow, and role-based admin tools.",
     image: "blog.jpg",
-    link: "#",
+    link: "https://fullstackblog-6g6r.vercel.app/",
   },
   {
     title: "hfeedlink",
     description:
       "Feedback Collection Tool: A unique shareable link is generated where customers can directly submit feedback—ratings, comments, and even attachments—everything organized in one centralized dashboard.",
     image: "feedlink.jpg",
-    link: "#",
+    link: "https://hfeedlink.vercel.app/",
   },
   {
     title: "E‑commerce Website",
     description:
       "Fully functional store with custom auth, email support, product management + admin panel, inventory & sales tracking, orders, coupons, and analytics.",
     image: "ecommerce.jpg",
-    link: "#",
+    link: "https://hassnain-mart.vercel.app/",
   },
   {
     title: "Gemini Clone",
     description:
       "Gemini Clone: A modern, responsive web app built with a sleek light/dark mode toggle. Features smooth animations, intuitive UI, and a fast, optimized frontend—crafted to deliver a seamless user experience and professional design.",
     image: "gemini.jpg",
-    link: "#",
+    link: "https://eloquent-belekoy-a8144e.netlify.app/",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function ProjectCarousel() {
 
   return (
     <section className=" pb-13  h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
-      <h2 className="text-4xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold  bebas-regular mb-15 leading-tight">
+      <h2 className="text-5xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold  bebas-regular  md:mb-15 leading-tight">
         MY PROJECTS
       </h2>
     <div className="relative w-full h-[350px] flex items-center justify-center perspective">
@@ -120,11 +120,12 @@ export default function ProjectCarousel() {
                 <h3 className="text-base md:text-md font-bold mb-2">
                   {project.title}
                 </h3>
-                <p className="text-[10px] mb-3 text-center">
+                <p className="md:text-[10px] text-[7px] mb-3 text-center">
                   {project.description}
                 </p>
                 <a
   href={project.link}
+  target="_blank"
   className="px-2.5 py-1 md:px-3 md:py-1.5 bg-white text-black rounded-md text-[11px] md:text-xs font-medium shadow-sm hover:bg-gray-200 transition-all duration-200 hover:scale-105"
 >
   View Project
