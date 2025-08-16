@@ -28,9 +28,9 @@ export default function Skills() {
 
   return (
     <div className="w-full h-[100vh] max-w-3xl mx-auto pb-10 px-5">
-      <h2 className="text-4xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular mb-10 leading-tight text-center">
-        MY SKILLS
-      </h2>
+      <h2 className="text-5xl sm:text-[40px] md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular leading-tight">
+          MY SKILLS
+        </h2>
 
       {/* Category Filter Buttons */}
       <div className="flex justify-center gap-5 mb-8 flex-wrap">
