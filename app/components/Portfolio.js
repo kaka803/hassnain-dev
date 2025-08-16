@@ -1,184 +1,176 @@
-'use client';
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+"use client";
 
-gsap.registerPlugin(ScrollTrigger);
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
 
 const projects = [
   {
-    id: 1,
-    title: "Feedlink Application",
-    desc: "Collects user feedback with clean UI/UX",
-    image: "/feedlink.jpg",
-    link: "https://hfeedlink.vercel.app/"
+    title: "Blog Platform",
+    description:
+      "Full‑stack blog with custom authentication, secure sessions, rich text editor, drafts/publish flow, and role-based admin tools.",
+    image: "blog.jpg",
+    link: "#",
   },
   {
-    id: 2,
-    title: "Fullstack E-commerce Store",
-    desc: "Built with GSAP, responsive frontend & backend",
-    image: "/ecommerce.jpg",
-    link: "https://hassnain-mart.vercel.app/"
+    title: "hfeedlink",
+    description:
+      "Feedback Collection Tool: A unique shareable link is generated where customers can directly submit feedback—ratings, comments, and even attachments—everything organized in one centralized dashboard.",
+    image: "feedlink.jpg",
+    link: "#",
   },
   {
-    id: 3,
-    title: "Fullstack Blog Application",
-    desc: "Next.js blog with custom authentication and editor",
-    image: "/blog.jpg",
-    link: "https://fullstackblog-6g6r.vercel.app/"
+    title: "E‑commerce Website",
+    description:
+      "Fully functional store with custom auth, email support, product management + admin panel, inventory & sales tracking, orders, coupons, and analytics.",
+    image: "ecommerce.jpg",
+    link: "#",
   },
   {
-    id: 4,
-    title: "Gemini Clone (Frontend)",
-    desc: "Animated Gemini-style UI with modern design",
-    image: "/gemini.jpg",
-    link: "https://eloquent-belekoy-a8144e.netlify.app/"
-  }
-]
+    title: "Gemini Clone",
+    description:
+      "Gemini Clone: A modern, responsive web app built with a sleek light/dark mode toggle. Features smooth animations, intuitive UI, and a fast, optimized frontend—crafted to deliver a seamless user experience and professional design.",
+    image: "gemini.jpg",
+    link: "#",
+  },
+];
 
 
-// Duplicate cards for looping effect
-const getLoopedProjects = () => {
-  return [...projects, ...projects, ...projects];
-};
+export default function ProjectCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [flippedCard, setFlippedCard] = useState(null);
+  const [zDistance, setZDistance] = useState(420); // translateZ distance
 
-const PortfolioSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(projects.length); 
-  const cardsRef = useRef([]);
-  const sectionRef = useRef(null);
-  const loopedProjects = getLoopedProjects();
-  const midIndex = Math.floor(loopedProjects.length / 2);
+  // ✅ responsive translateZ set karna
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setZDistance(280); // mobile
+      } else if (window.innerWidth < 768) {
+        setZDistance(350); // tablet
+      } else {
+        setZDistance(420); // desktop
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev >= loopedProjects.length - 2 ? midIndex : prev + 1
-    );
+    setCurrentIndex((prev) => (prev + 1) % projects.length);
+    setFlippedCard(null);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev <= 1 ? midIndex : prev - 1
-    );
+    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    setFlippedCard(null);
   };
 
-  // Auto Slide
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) =>
-        prev >= loopedProjects.length - 2 ? midIndex : prev + 1
-      );
-    }, 4000);
+      nextSlide();
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
-  // Animate only when section comes into view
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top 30%",
-        onEnter: () => {
-          animateCards();
-        },
-        once: true // only trigger once
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [currentIndex]);
-
-  // Animation function
-  const animateCards = () => {
-  const total = loopedProjects.length;
-  const center = currentIndex;
-
-  cardsRef.current.forEach((card, index) => {
-    if (!card) return;
-    const distance = index - center;
-    let scale = 0.8;
-    let opacity = 0.3;
-    let zIndex = 1;
-    let x = distance * 200;
-
-    if (distance === 0) {
-      scale = 1.15;
-      opacity = 1;
-      zIndex = 10;
-      x = 0;
-    } else if (Math.abs(distance) === 1) {
-      scale = 0.95;
-      opacity = 0.7;
-      zIndex = 5;
-    } else if (Math.abs(distance) === 2) {
-      scale = 0.85;
-      opacity = 0.5;
-      zIndex = 2;
-    }
-
-    gsap.to(card, {
-      scale,
-      opacity,
-      x,
-      zIndex,
-      duration: 0.5,
-      ease: "power3.out"
-    });
-  });
-};
-
+  const toggleFlip = (index) => {
+    setFlippedCard(flippedCard === index ? null : index);
+  };
 
   return (
-    <section ref={sectionRef} className="relative w-full py-10 px-4 md:px-10  overflow-hidden">
-      <h2 className="text-5xl md:text-[80px] bebas-regular font-bold text-center mb-10 text-gray-800">
-        Featured Projects
+    <section className=" pb-13  h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
+      <h2 className="text-4xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold  bebas-regular mb-15 leading-tight">
+        MY PROJECTS
       </h2>
-
-      <div className="relative flex justify-center items-center h-[420px] md:h-[450px]">
-        <button
-          className="absolute left-4 z-30 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 transition"
-          onClick={prevSlide}
-        >
-          <FaArrowLeft size={20} />
-        </button>
-
-        <div className="relative w-full max-w-7xl flex justify-center items-center">
-          {loopedProjects.map((project, index) => (
+    <div className="relative w-full h-[350px] flex items-center justify-center perspective">
+      
+      <div
+        className="relative w-[200px] h-[140px] sm:w-[240px] sm:h-[170px] md:w-[280px] md:h-[200px] transform-style-3d transition-transform duration-700"
+        style={{
+          transform: `rotateY(-${currentIndex * (360 / projects.length)}deg)`,
+        }}
+      >
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="absolute w-[200px] h-[140px] sm:w-[240px] sm:h-[170px] md:w-[280px] md:h-[200px] rounded-xl shadow-lg"
+            style={{
+              transform: `rotateY(${index * (360 / projects.length)}deg) translateZ(${zDistance}px)`,
+            }}
+            onClick={() => toggleFlip(index)}
+          >
+            {/* Card Wrapper */}
             <div
-              key={index}
-              ref={(el) => (cardsRef.current[index] = el)}
-              className="absolute w-64 md:w-72 h-[360px] bg-white shadow-xl rounded-2xl p-5 transition-all duration-500 ease-in-out flex flex-col justify-between"
-              style={{ transform: "translateX(0px)", opacity: 0.3, zIndex: 1 }}
+              className={`relative shadow-[0_0_20px_rgba(0,0,0,0.8)] hover:shadow-[0_0_40px_rgba(0,0,0,1)]   rounded-xl p-6 bg-gray-900 w-full h-full [transform-style:preserve-3d] transition-all duration-700 group ${
+                flippedCard === index ? "[transform:rotateY(180deg)]" : ""
+              }`}
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-40 object-cover rounded-xl"
-              />
-              <div className="mt-4">
-                <h3 className="text-lg font-bold text-gray-800">{project.title}</h3>
-                <p className="text-gray-600 text-sm mt-1">{project.desc}</p>
+              {/* Front Side */}
+              <div className="absolute inset-0 backface-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover rounded-xl"
+                />
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                className="mt-4 inline-block bg-gray-800 text-white text-sm px-4 py-2 rounded-full hover:bg-gray-700 transition"
-              >
-                Live Preview
-              </a>
-            </div>
-          ))}
-        </div>
 
-        <button
-          className="absolute right-4 z-30 bg-white shadow-md rounded-full p-3 hover:bg-gray-100 transition"
-          onClick={nextSlide}
-        >
-          <FaArrowRight size={20} />
-        </button>
+              {/* Back Side */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black text-white rounded-xl flex flex-col items-center justify-center p-3 [transform:rotateY(180deg)] backface-hidden">
+                <h3 className="text-base md:text-md font-bold mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-[10px] mb-3 text-center">
+                  {project.description}
+                </p>
+                <a
+  href={project.link}
+  className="px-2.5 py-1 md:px-3 md:py-1.5 bg-white text-black rounded-md text-[11px] md:text-xs font-medium shadow-sm hover:bg-gray-200 transition-all duration-200 hover:scale-105"
+>
+  View Project
+</a>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
+
+      {/* Buttons */}
+      {/* Left / Previous */}
+<button
+  type="button"
+  onClick={prevSlide}
+  aria-label="Previous slide"
+  className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-sm text-white shadow-md hover:bg-black/75 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white transition-transform transform-gpu hover:scale-105"
+>
+  <ChevronLeft size={18} strokeWidth={2.2} />
+</button>
+
+{/* Right / Next */}
+<button
+  type="button"
+  onClick={nextSlide}
+  aria-label="Next slide"
+  className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-sm text-white shadow-md hover:bg-black/75 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white transition-transform transform-gpu hover:scale-105"
+>
+  <ChevronRight size={18} strokeWidth={2.2} />
+</button>
+
+
+      {/* Extra CSS */}
+      <style jsx>{`
+        .perspective {
+          perspective: 1200px;
+        }
+        .transform-style-3d {
+          transform-style: preserve-3d;
+        }
+        .backface-hidden {
+          -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+        }
+      `}</style>
+    </div>
     </section>
   );
-};
-
-export default PortfolioSlider;
+}
