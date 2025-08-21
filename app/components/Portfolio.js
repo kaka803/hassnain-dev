@@ -27,11 +27,11 @@ const projects = [
     link: "https://hassnain-mart.vercel.app/",
   },
   {
-    title: "Gemini Clone",
+    title: "Linktree Clone",
     description:
-      "Gemini Clone: A modern, responsive web app built with a sleek light/dark mode toggle. Features smooth animations, intuitive UI, and a fast, optimized frontend—crafted to deliver a seamless user experience and professional design.",
-    image: "gemini.jpg",
-    link: "https://eloquent-belekoy-a8144e.netlify.app/",
+      "Linktree Clone: A clean and responsive web app to showcase all your important links in one place. Features a modern design and a user-friendly interface—built for speed, simplicity, and a seamless user experience.",
+    image: "linktree.jpg",
+    link: "https://linktreeclone-lime.vercel.app/",
   },
 ];
 

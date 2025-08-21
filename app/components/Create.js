@@ -50,6 +50,7 @@ const CreateDevelopSection = () => {
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 80%",
+        toggleActions: 'play none none reverse',
       },
     });
   }, []);

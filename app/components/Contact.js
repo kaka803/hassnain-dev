@@ -27,6 +27,7 @@ const Contact = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
+          toggleActions: 'play none none reverse',
         },
       }
     );
@@ -43,6 +44,7 @@ const Contact = () => {
         scrollTrigger: {
           trigger: formRef.current,
           start: "top 85%",
+          toggleActions: 'play none none reverse',
         },
       }
     );

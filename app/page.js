@@ -36,6 +36,7 @@ export default function Home() {
         y: e.clientY - 15,
         duration: 0.5,
         ease: "power3.out",
+        
       });
     };
 
