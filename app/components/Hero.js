@@ -63,7 +63,7 @@ useEffect(() => {
   return (
     <div>
       <div className='fixed top-0 right-0 z-300  w-full h-full'>
-        <div className={`text-9xl bebas-regular text-white absolute bottom-5 right-10 ${startloading < 100 ? 'block': 'hidden'}`}>{startloading}%</div>
+        <div className={`text-6xl md:text-9xl bebas-regular text-white absolute bottom-5 right-10 ${startloading < 100 ? 'block': 'hidden'}`}>{startloading}%</div>
         <div className='flex justify-center items-center h-full '>
           <div ref={barref} className="bar w-full h-full bg-black"></div>
           <div ref={barref} className="bar w-full h-full bg-black"></div>

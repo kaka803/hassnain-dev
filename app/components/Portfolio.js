@@ -79,7 +79,7 @@ export default function ProjectCarousel() {
   };
 
   return (
-    <section className=" pb-13  h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
+    <section id="projects" className=" pb-13  h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
       <h2 className="text-5xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold  bebas-regular  md:mb-15 leading-tight">
         MY PROJECTS
       </h2>

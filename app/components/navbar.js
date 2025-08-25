@@ -66,7 +66,8 @@ const Navbar = ({startloading}) => {
         <div className="nav-links hidden md:block">
           <ul className="flex gap-8 items-center">
             {navItems.map((item, index) => (
-              <li
+                <li
+              
                 key={index}
                 ref={(el) => (linksRef.current[index] = el)}
                 className="text-base text-[#2a3354] font-medium hover:text-pink-500 transition-colors duration-300 cursor-pointer"

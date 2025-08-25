@@ -40,6 +40,7 @@ export default function Footer() {
   return (
     <footer
       ref={sectionRef}
+      
       className="gradient-bg text-white py-20 text-center px-4"
     >
       <h1 className={`md:text-[80px] ${bebasNeue.className}  font-extrabold mb-6 fade-in leading-none text-[50px]`}>DEVELOPER ALI</h1>
