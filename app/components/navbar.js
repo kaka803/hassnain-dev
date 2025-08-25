@@ -5,7 +5,7 @@ import WrapButton from "@/components/ui/wrap-button";
 import { ArrowDownToLine, Menu, X } from "lucide-react";
 import gsap from "gsap";
 
-const Navbar = () => {
+const Navbar = ({startloading}) => {
   const logoRef = useRef(null);
   const linksRef = useRef([]);
   const buttonRef = useRef(null);
@@ -13,8 +13,8 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
-    tl.from(logoRef.current, { y: -50, opacity: 0 });
+    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8, } });
+    tl.from(logoRef.current, { y: -50, opacity: 0, delay: 2.5 });
     tl.from(linksRef.current, { y: -30, opacity: 0, stagger: 0.15 }, "-=0.4");
     tl.from(buttonRef.current, { y: -20, opacity: 0 }, "-=0.3");
   }, []);

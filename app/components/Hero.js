@@ -1,35 +1,60 @@
 'use client'
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap';
 
-const Hero = () => {
+const Hero = ({startloading}) => {
   const imgref = useRef(null)
   const textref = useRef(null)
   const descref = useRef(null)
   const btnref = useRef(null)
+  const barref = useRef(null)
 
- useEffect(() => {
-  const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
 
-  // Logo animation
-  tl.from(imgref.current, { y: -50, opacity: 0 });
 
-  // Nav links animation (slight delay)
-  tl.from(textref.current, {
+
+  
+
+
+
+ 
+
+// }, []);
+
+
+useEffect(() => {
+  if (startloading === 100) {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+
+    // Bars animation
+    tl.to(".bar", {
+      y: "-100%",
+      duration: 0.6,
+      stagger: 0.1,
+      ease: "power4.inOut",
+    });
+
+    // Logo animation
+    tl.from(imgref.current, { 
+      y: -50, 
+      opacity: 0 
+    });
+
+    // Nav links animation (slight delay)
+    tl.from(textref.current, {
     y: -30,
     opacity: 0,
   }, "+=0.1");
 
-  // Description text animation (slight delay)
-  tl.from(descref.current, {
-    y: -20,
-    opacity: 0,
-  }, "+=0.1");
+    // Description text animation
+    tl.from(descref.current, {
+      y: -20,
+      opacity: 0,
+    });
+  }
+}, [startloading]);
 
- 
 
-}, []);
 
 
   
@@ -37,6 +62,18 @@ const Hero = () => {
 
   return (
     <div>
+      <div className='fixed top-0 right-0 z-300  w-full h-full'>
+        <div className={`text-9xl bebas-regular text-white absolute bottom-5 right-10 ${startloading < 100 ? 'block': 'hidden'}`}>{startloading}%</div>
+        <div className='flex justify-center items-center h-full '>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+          <div ref={barref} className="bar w-full h-full bg-black"></div>
+        </div>
+      </div>
       <div className="hero-section flex flex-col items-center justify-center min-h-[100%] text-center px-4 py-10">
   <div ref={imgref} className="mb-6">
     <Image

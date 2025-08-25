@@ -10,9 +10,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Skills from "./components/Skills";
 import Lenis from '@studio-freight/lenis'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+
+  const [startloading, setstartloading] = useState(0)
 
 
    const circleRef = useRef(null);
@@ -48,6 +50,22 @@ export default function Home() {
   }, []);
 
 
+  useEffect(() => {
+    // Fake loading increment
+    const interval = setInterval(() => {
+      setstartloading(prev => {
+        if (prev >= 100) {
+          clearInterval(interval); 
+          return 100;
+        }
+        return prev + Math.floor(Math.random() * 10) + 1; // random increment (1–10)
+      });
+    }, 100); 
+
+    return () => clearInterval(interval);
+  }, []);
+
+
 
 
   return (
@@ -59,8 +77,8 @@ export default function Home() {
       
       <section className="div-container overflow-hidden">
       
-        <Navbar />
-      <Hero/>
+        <Navbar startloading={startloading} />
+      <Hero startloading={startloading}/>
 
        <CreateDevelopSection/>
 
