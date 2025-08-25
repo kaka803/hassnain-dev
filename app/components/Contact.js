@@ -81,6 +81,7 @@ const Contact = () => {
   return (
     <section
       ref={sectionRef}
+      id="contact"
       className="min-h-screen px-6 md:py-20 mt-10 flex flex-col items-center justify-center"
     >
       <h2 className="md:text-[80px] text-[50px] bebas-regular font-bold text-center text-gray-800 dark:text-white ">

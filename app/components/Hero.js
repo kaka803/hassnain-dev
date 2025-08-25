@@ -4,6 +4,7 @@ import Image from 'next/image'
 import gsap from 'gsap';
 
 const Hero = ({startloading}) => {
+  const [showLoader, setShowLoader] = useState(true);
   const imgref = useRef(null)
   const textref = useRef(null)
   const descref = useRef(null)
@@ -19,7 +20,14 @@ const Hero = ({startloading}) => {
 
  
 
-// }, []);
+ useEffect(() => {
+    if (startloading >= 100) {
+      // 1 second ka delay taake animation complete ho jaye
+      const timer = setTimeout(() => setShowLoader(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [startloading]);
+
 
 
 useEffect(() => {
@@ -61,8 +69,8 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <div className='fixed top-0 right-0 z-300  w-full h-full'>
+    <div id='home'>
+      <div className={`fixed top-0 right-0 z-300  ${showLoader ? 'block': 'hidden'}  w-full h-full`}>
         <div className={`text-6xl md:text-9xl bebas-regular text-white absolute bottom-5 right-10 ${startloading < 100 ? 'block': 'hidden'}`}>{startloading}%</div>
         <div className='flex justify-center items-center h-full '>
           <div ref={barref} className="bar w-full h-full bg-black"></div>

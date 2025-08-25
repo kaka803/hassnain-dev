@@ -55,6 +55,7 @@ const ExperienceSection = () => {
   return (
     <section
       ref={sectionRef}
+      id="about"
       className="relative md:py-16 px-4 sm:px-8 md:px-16 mb-20 overflow-hidden"
     >
       <div className="relative z-10 text-center space-y-6">

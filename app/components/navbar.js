@@ -65,17 +65,23 @@ const Navbar = ({startloading}) => {
         {/* Desktop Nav Links */}
         <div className="nav-links hidden md:block">
           <ul className="flex gap-8 items-center">
-            {navItems.map((item, index) => (
-                <li
-              
-                key={index}
-                ref={(el) => (linksRef.current[index] = el)}
-                className="text-base text-[#2a3354] font-medium hover:text-pink-500 transition-colors duration-300 cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+  {navItems.map((item, index) => (
+    <li
+      key={index}
+      ref={(el) => (linksRef.current[index] = el)}
+      className="text-base text-[#2a3354] font-medium hover:text-pink-500 transition-colors duration-300 cursor-pointer"
+      onClick={(e) => {
+        e.preventDefault();
+        document
+          .getElementById(item.toLowerCase()) // id wale section ko find karega
+          .scrollIntoView({ behavior: "smooth" });
+      }}
+    >
+      {item}
+    </li>
+  ))}
+</ul>
+
         </div>
 
         {/* Download Button */}
@@ -93,26 +99,40 @@ const Navbar = ({startloading}) => {
 
         {/* Mobile Menu */}
         <div
-          ref={mobileMenuRef}
-          className="fixed top-0 right-0 w-[80%] h-full bg-white shadow-lg transform translate-x-full md:hidden transition-transform duration-500 z-40 px-8 pt-20"
-        >
-          <ul className="flex flex-col gap-6">
-            {navItems.map((item, index) => (
-              <li
-                key={index}
-                className="text-lg text-[#2a3354] font-semibold hover:text-pink-500 transition-colors duration-300 cursor-pointer"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div onClick={handleDownload} className="mt-8">
-            <WrapButton href="#" >
-              <ArrowDownToLine className="animate-spin" size={14} color="#000" />
-              Download CV
-            </WrapButton>
-          </div>
-        </div>
+  ref={mobileMenuRef}
+  className="fixed top-0 right-0 w-[80%] h-full bg-white shadow-lg transform translate-x-full md:hidden transition-transform duration-500 z-200 px-8 pt-20"
+>
+  
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="absolute top-4 right-15 text-gray-700 hover:text-pink-500 transition-colors"
+  >
+    <X size={28} />
+  </button>
+
+  {/* Nav Links */}
+  <ul className="flex flex-col gap-6 mt-8">
+    {navItems.map((item, index) => (
+      <li
+        key={index}
+        className="text-lg text-[#2a3354] font-semibold hover:text-pink-500 transition-colors duration-300 cursor-pointer"
+      >
+        <a
+        onClick={() => setMenuOpen(false)} 
+         href={`#${item.toLowerCase()}`}>{item}</a>
+      </li>
+    ))}
+  </ul>
+
+  {/* Download Button */}
+  <div onClick={handleDownload} className="mt-8">
+    <WrapButton href="#">
+      <ArrowDownToLine className="animate-spin" size={14} color="#000" />
+      Download CV
+    </WrapButton>
+  </div>
+</div>
+
       </nav>
     </div>
   );

@@ -27,7 +27,7 @@ export default function Skills() {
   const [selectedCategory, setSelectedCategory] = useState("Frontend");
 
   return (
-    <div className="w-full mb-15 max-w-3xl mx-auto pb-10 px-5">
+    <div id="skills" className="w-full mb-15 max-w-3xl mx-auto pb-10 px-5">
       <h2 className="text-5xl sm:text-[40px] md:text-[60px] lg:text-[80px] text-gray-800 font-bold bebas-regular leading-tight text-center mb-10">
           MY SKILLS
         </h2>
