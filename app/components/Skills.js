@@ -55,26 +55,28 @@ export default function Skills() {
   const [category, setCategory] = useState("Frontend");
   const circlesRef = useRef({});
 
-  useEffect(() => {
-    Object.keys(circlesRef.current).forEach((key) => {
-      const circle = circlesRef.current[key];
-      const skill = skillsData[category].find((s) => s.name === key);
-      if (!circle || !skill) return;
+useEffect(() => {
+  Object.keys(circlesRef.current).forEach((key) => {
+    const circle = circlesRef.current[key];
+    const skill = skillsData[category].find((s) => s.name === key);
+    if (!circle || !skill) return;
 
-      const pathLength = 2 * Math.PI * 70;
-      gsap.set(circle, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+    const pathLength = 2 * Math.PI * 70;
+    gsap.set(circle, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
-      gsap.to(circle, {
-        strokeDashoffset: pathLength * (1 - skill.level / 100),
-        scrollTrigger: {
-          trigger: circle,
-          start: "top 80%",
-        },
-        duration: 1.5,
-        ease: "power2.out",
-      });
+    gsap.to(circle, {
+      strokeDashoffset: pathLength * (1 - skill.level / 100),
+      scrollTrigger: {
+        trigger: circle,
+        start: "top 80%",
+        once: true, // 👈 animation ek hi baar chalega
+      },
+      duration: 1.2,
+      ease: "power2.out",
     });
-  }, [category]);
+  });
+}, [category]);
+
 
   // Parent animation container
   const containerVariants = {
@@ -155,23 +157,24 @@ export default function Skills() {
               </defs>
             </svg>
 
-            {/* Wave Animation */}
-            <motion.div
-              className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-r 
-                from-blue-500/30 to-pink-500/30"
-              style={{ clipPath: "polygon(0% 100%, 100% 100%, 100% 65%, 0% 85%)" }}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
+           {/* Wave Animation */}
+<div 
+  className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-r 
+    from-blue-500/30 to-pink-500/30"
+  style={{
+    clipPath: "polygon(0% 100%, 100% 100%, 100% 65%, 0% 85%)",
+    animation: "wave 2s infinite ease-in-out"
+  }}
+/>
 
-            {/* Icon */}
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-4xl relative z-10 drop-shadow-md"
-            >
-              {skill.icon}
-            </motion.div>
+{/* Icon */}
+<div 
+  className="text-4xl relative z-10 drop-shadow-md"
+  style={{ animation: "bounce 2s infinite" }}
+>
+  {skill.icon}
+</div>
+
 
             {/* Percentage */}
             <span className="absolute bottom-5 text-lg font-bold text-purple-700 dark:text-purple-400 z-10">
