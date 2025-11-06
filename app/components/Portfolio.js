@@ -23,7 +23,7 @@ const projects = [
   {
     title: "3D Vendorz — International E-Commerce Store",
     description:
-      "A feature-rich store created for an overseas client with payment integration, admin panel, order tracking, product management, and live currency converter — polished UX and elegant UI.",
+      "A feature-rich store created for an oversea client with payment integration, admin panel, order tracking, product management, and live currency converter — polished UX and elegant UI.",
     image: "3dvendorz.jpg",
     link: "https://www.3dvendorz.com/",
   },
