@@ -26,7 +26,7 @@ const Contact = () => {
         ease: "power2.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 90%",
           toggleActions: 'play none none reverse',
         },
       }
@@ -43,7 +43,7 @@ const Contact = () => {
         ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: formRef.current,
-          start: "top 85%",
+          start: "top 90%",
           toggleActions: 'play none none reverse',
         },
       }
@@ -82,7 +82,7 @@ const Contact = () => {
     <section
       ref={sectionRef}
       id="contact"
-      className="min-h-screen px-6 md:py-20 mt-10 flex flex-col items-center justify-center"
+      className="min-h-screen px-6 md:py-20 mt-5 flex flex-col items-center justify-center"
     >
       <h2 className="md:text-[80px] text-[50px] bebas-regular font-bold text-center text-gray-800 dark:text-white ">
         Get in Touch

@@ -5,31 +5,46 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
 const projects = [
+  
   {
-    title: "Blog Platform",
+    title: "HFeedLink — Feedback Management Platform",
     description:
-      "Full‑stack blog with custom authentication, secure sessions, rich text editor, drafts/publish flow, and role-based admin tools.",
-    image: "blog.jpg",
-    link: "https://fullstackblog-6g6r.vercel.app/",
-  },
-  {
-    title: "hfeedlink",
-    description:
-      "Feedback Collection Tool: A unique shareable link is generated where customers can directly submit feedback—ratings, comments, and even attachments—everything organized in one centralized dashboard.",
+      "A full-stack feedback collection platform built using Clerk authentication and Tailwind UI. Clean dashboard to receive, manage, and analyze client feedback in real time.",
     image: "feedlink.jpg",
     link: "https://hfeedlink.vercel.app/",
   },
   {
-    title: "E‑commerce Website",
+    title: "Asians Technologies — Software House Website",
     description:
-      "Fully functional store with custom auth, email support, product management + admin panel, inventory & sales tracking, orders, coupons, and analytics.",
+      "Developed a fully animated, high-performance software house website with GSAP scroll effects, advanced frontend interactions, and smooth transitions — built with React & Tailwind CSS.",
+    image: "asians.jpg",
+    link: "https://www.asianstechnologies.com/",
+  },
+  {
+    title: "3D Vendorz — International E-Commerce Store",
+    description:
+      "A feature-rich store created for an overseas client with payment integration, admin panel, order tracking, product management, and live currency converter — polished UX and elegant UI.",
+    image: "3dvendorz.jpg",
+    link: "https://www.3dvendorz.com/",
+  },
+  {
+    title: "E-Commerce Website — Hassnain Mart",
+    description:
+      "A complete store with custom authentication, inventory management, admin analytics, product filters, and order history — fully functional and responsive frontend + backend system.",
     image: "ecommerce.jpg",
     link: "https://hassnain-mart.vercel.app/",
   },
   {
-    title: "Linktree Clone",
+    title: "Blog Platform — Full-Stack App",
     description:
-      "Linktree Clone: A clean and responsive web app to showcase all your important links in one place. Features a modern design and a user-friendly interface—built for speed, simplicity, and a seamless user experience.",
+      "My first full-stack project: built with authentication, post creation, comments, and views system. Includes a clean dashboard, WYSIWYG editor, and role-based controls.",
+    image: "blog.jpg",
+    link: "https://fullstackblog-6g6r.vercel.app/",
+  },
+  {
+    title: "Linktree Clone — Practice Project",
+    description:
+      "A clean, minimalist Linktree clone to showcase important links in one place. Designed for performance and responsive adaptability — built as a UI/UX experiment.",
     image: "linktree.jpg",
     link: "https://linktreeclone-lime.vercel.app/",
   },
@@ -79,7 +94,7 @@ export default function ProjectCarousel() {
   };
 
   return (
-    <section id="projects" className=" pb-13  h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
+    <section id="projects" className="   h-[100%] lg:h-[90vh] px-4 sm:px-6 md:px-10 text-center">
       <h2 className="text-5xl  md:text-[60px] lg:text-[80px] text-gray-800 font-bold  bebas-regular  md:mb-15 leading-tight">
         MY PROJECTS
       </h2>
