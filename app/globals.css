@@ -27,6 +27,7 @@
   50% { transform: translateY(-6px); }
 }
 
+
 .animate-marquee {
   display: inline-block;
   animation: marquee 15s linear infinite;
